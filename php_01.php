@@ -11,9 +11,12 @@
     <?php
         $num = 0;
     ?>
-    <h1 class="text-center">
+    <div class="d-flex justify-content-center">
+        <h1 class="d-flex justify-content-center h3 mt-4 p-3 mb-4 bg-success-subtle text-primary-emphasis rounded-5 w-25">
         สูตรคูณแม่ 2
-    </h1>
+        </h1>
+    </div>
+    
     <div class=" text-center h2">
         <?php 
         for ($i = 1; $i < 13; $i++){

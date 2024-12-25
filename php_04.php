@@ -14,8 +14,8 @@
         <form method="post" action="php_04.php">
         <div class="text-center">
             <div class="row text-center">
-                <div class="d-flex justify-content-center h3 mt-4 p-3 bg-opacity-10 border border-info border-4 rounded-end">
-                    เลข ไหน คู่ คี่
+                <div class="d-flex justify-content-center h3 mt-4 p-3 mb-4 bg-primary-subtle text-primary-emphasis">
+                    -- เลข ไหน คู่ เลข ไหน คี่ --
                 </div>
                 <div class="d-flex justify-content-center mb-2 mt-2">
                         <i class="fa-solid fa-star"></i>
@@ -44,13 +44,12 @@ if (isset($_POST["submit"])) {
     
     echo "<table class='table table-info table-striped-columns text-center'>";
     
-    $count = 0; // ใช้เพื่อตรวจสอบว่าถึง 2 คอลัมน์แล้วหรือยัง
+    $count = 0;
     for ($i = $num1; $i <= $num2; $i++) {
         if ($count % 2 == 0) { 
-            echo "<tr>"; // เริ่มแถวใหม่ทุก ๆ 2 คอลัมน์
+            echo "<tr>";
         }
         
-        // ตรวจสอบว่าเลขเป็นคู่หรือคี่
         if ($i % 2 == 0) {
             echo "<td class='col-6'>$i = คู่</td>";
         } else {
@@ -59,19 +58,18 @@ if (isset($_POST["submit"])) {
         
         $count++;
         if ($count % 2 == 0) {
-            echo "</tr>"; // ปิดแถวเมื่อครบ 2 คอลัมน์
+            echo "</tr>";
         }
     }
     
-    // ปิดแถวสุดท้ายถ้าไม่ครบ 2 คอลัมน์
     if ($count % 2 != 0) {
         echo "<td ></td></tr>";
     }
     
     echo "</table>";
 }else{
-    echo "<div class=' d-flex justify-content-center h3 mt-4 p-3 bg-opacity-10 border border-info border-4 rounded-end'>  โปรดใส่ตัวเลข Start และ End </div> ";
-    echo "<div class=' d-flex justify-content-center '> <img src='Pin Image.jpeg' class='img-fluid ' alt='...' > </div>" ;
+    echo "<div class=' d-flex justify-content-center h3 mt-4 p-3 '>  โปรดใส่ตัวเลข Start และ End </div> ";
+    echo "<div class=' d-flex justify-content-center' >  <div class=' d-flex justify-content-center w-25 h-25 '> <img src='Pin Image.jpeg' class='img-fluid ' alt='...' > </div>  </div> " ;
 }
 }
 ?>

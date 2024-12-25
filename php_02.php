@@ -9,18 +9,23 @@
 </head>
 <body>
     <div class="text-center">
-        <div>
+        <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center h3 mt-4 p-3 mb-4 bg-primary-subtle text-primary-emphasis rounded-5 w-25">
             ตัวเลข 1-100
         </div>
+        </div>
+        </div>
+
         <?php
-        for($i = 1 ; $i < 101 ;$i++){
-            if($i % 2 == 0){
-                echo '<div>'. $i.' = '.'คู่'.'</div>';
-            }elseif($i % 2 == 1){
-                echo '<div>'. $i.' = '.'คี่'.'</div>';
-            }
+        echo "<table class='table table-bordered border-dark d-flex justify-content-center'>";
+        for ($i = 1; $i <= 50; $i++) {
+            echo '<tr>';
+            echo '<td>' . (2 * $i - 1) . '  คี่'.'</td>';
+            echo '<td>' . (2 * $i) . '  คู่'. '</td>';
+            echo '</tr>';
         }
-    ?>
-    </div>
+        echo "</table>";
+        ?>
+    
 </body>
 </html>
