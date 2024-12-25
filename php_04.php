@@ -71,7 +71,7 @@ if (isset($_POST["submit"])) {
     echo "</table>";
 }else{
     echo "<div class=' d-flex justify-content-center h3 mt-4 p-3 bg-opacity-10 border border-info border-4 rounded-end'>  โปรดใส่ตัวเลข Start และ End </div> ";
-    echo "<img src='...' class='img-fluid' alt='...' >"
+    echo "<div class=' d-flex justify-content-center '> <img src='Pin Image.jpeg' class='img-fluid ' alt='...' > </div>" ;
 }
 }
 ?>
