@@ -50,7 +50,7 @@
                 echo "</table>";
                 echo "</div>";
             } else {
-                echo "<div class=' d-flex justify-content-center h3 mt-4 p-3 '>  โปรดใส่ตัวเลข Start และ End </div> ";
+                echo "<div class=' d-flex justify-content-center h3 mt-4 p-3 '>  โปรดใส่ตัวเลข</div> ";
                 echo "<div class=' d-flex justify-content-center' >  <div class=' d-flex justify-content-center w-25 h-25 '> <img src='Pin Image.jpeg' class='img-fluid ' alt='...' > </div>  </div> ";
             }
             
