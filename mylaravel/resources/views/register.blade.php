@@ -13,26 +13,44 @@
                 </div>
                 <div class="card-body register-card-body">
                     <p class="register-box-msg">Register a new membership</p>
-                    <form action="{{url('/register')}}" method="post">
+                    <form action="{{url('/register')}}" onsubmit="return myfunction()" method="post">
                         @csrf
                         <div class="input-group mb-1">
                             <div class="form-floating">
-                                <input id="registerFullName" name="name" type="text" class="form-control" placeholder="" />
-                                <label for="registerFullName">Full Name</label>
+                                <input id="name" name="name" type="text" class="form-control" placeholder="" />
+                                <label for="name">Full Name</label>
+                                <div class="valid-feedback">
+                                    OK
+                                </div>
+                                <div class="invalid-feedback" id="invalid-name">
+                                    กรุณาระบุข้อมูล name
+                                </div>
                             </div>
                             <div class="input-group-text"><span class="bi bi-person"></span></div>
                         </div>
                         <div class="input-group mb-1">
                             <div class="form-floating">
-                                <input id="registerEmail" name="email" type="email" class="form-control" placeholder="" />
-                                <label for="registerEmail">Email</label>
+                                <input id="email" name="email" type="email" class="form-control" placeholder="" />
+                                <label for="email">Email</label>
+                                <div class="valid-feedback">
+                                    OK
+                                </div>
+                                <div class="invalid-feedback" id="invalid-name">
+                                    กรุณาระบุข้อมูล email ให้ถูกต้อง
+                                </div>
                             </div>
                             <div class="input-group-text"><span class="bi bi-envelope"></span></div>
                         </div>
                         <div class="input-group mb-1">
                             <div class="form-floating">
-                                <input id="registerPassword" name="password" type="password" class="form-control" placeholder="" />
-                                <label for="registerPassword">Password</label>
+                                <input id="pass" name="password" type="password" class="form-control" placeholder="" />
+                                <label for="pass">Password</label>
+                                <div class="valid-feedback">
+                                    OK
+                                </div>
+                                <div class="invalid-feedback" id="invalid-name">
+                                    กรุณาระบุข้อมูล Password ให้ถูกต้อง
+                                </div>
                             </div>
                             <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
                         </div>
@@ -40,8 +58,8 @@
                         <div class="row my-2">
                             <div class="col-8 d-inline-flex align-items-center">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                    <input class="form-check-input" id="mycheckbox" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label class="form-check-label" for="mycheckbox">
                                         I agree to the <a href="#">terms</a>
                                     </label>
                                 </div>
@@ -56,7 +74,6 @@
                         </div>
                         <!--end::Row-->
                     </form>
-                
                     <!-- /.social-auth-links -->
                     <p class="mb-0">
                         <a href="{{ url('login') }}" class="link-primary text-center"> I already have a membership </a>
@@ -66,4 +83,59 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        function myfunction(){
+            let name = $('#name')
+            let email =  $('#email')
+            let pass =  $('#pass')
+            let mycheckbox =  $('#mycheckbox')
+            //name.value = "My Name Value"
+            //name.val("My Name Value")
+            console.log(name.val(), email.value, pass.value, mycheckbox.checked)
+
+
+            if(name.val() == ''){
+                name.addClass('is-invalid');
+                name.removeClass('is-valid');
+                //$('#invalid-name').html("ใส่ name เป็นค่านี้ไม่ได้")
+                return false;
+            }else{
+                name.addClass('is-valid');
+                name.removeClass('is-invalid');
+            }
+            
+            if (email.val() == '' || !email.val().includes('@') || !email.val().includes('.')) {
+                email.addClass('is-invalid');
+                email.removeClass('is-valid');
+                return false;
+            }else{
+                email.addClass('is-valid');
+                email.removeClass('is-invalid');
+            }
+
+            if (pass.val() == '' || !/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])/.test(pass.val())) {
+                pass.addClass('is-invalid');
+                pass.removeClass('is-valid');
+                return false;
+            }else{
+                pass.addClass('is-valid');
+                pass.removeClass('is-invalid');
+            }
+
+            if (!mycheckbox.prop('checked')) {
+                mycheckbox.addClass('is-invalid');
+                mycheckbox.removeClass('is-valid');
+                return false;
+            }else{
+                mycheckbox.addClass('is-valid');
+                mycheckbox.removeClass('is-invalid');
+            }
+
+            return true;
+        }
+
+        </script>
 @endsection
